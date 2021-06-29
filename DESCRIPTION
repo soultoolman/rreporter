@@ -1,6 +1,6 @@
 Package: rreporter
 Title: R reporter for saving any intermediate result in R scripts
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: 
     person(given = "soultooman",
            family = "soultoolman",
