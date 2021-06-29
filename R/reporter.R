@@ -1,9 +1,11 @@
 #' store generics
 #' @param ... refer to specified method for details.
+#' @export
 store <- function(...) UseMethod("store")
 
 #' read generics
 #' @param ... refer to specified method for details.
+#' @export
 read <- function(...) UseMethod(("read"))
 
 
