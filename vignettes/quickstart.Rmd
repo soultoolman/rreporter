@@ -1,0 +1,52 @@
+---
+title: "quickstart"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{quickstart}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```r
+library(rreporter)
+
+
+report <- Report()  # initialize report object
+add(report, "foo", "bar")  # add variable to report
+store(report)  # save report to file
+print(report$report_id)  # you need this report ID only.
+```
+
+In another script:
+
+```r
+library(rrporter)
+
+report_id <- "xxx"  # the ID you want to read
+report <- Report(report_id)  # initialize using ID
+report <- read(report)  # load from backend
+
+access(report, "foo")  # will return "bar"
+```
+
+`rrporter` save to report data to current diretory, there're 2 ways to change it:
+
+1. define environment variable `REPORTER_DIR`
+
+```
+export REPORTER_DIR=/path/to/reporter
+```
+
+2. custom backend object
+
+```R
+backend <- FileBackend("/path/to/reporter")
+report <- Report(backend = backend)
+```
